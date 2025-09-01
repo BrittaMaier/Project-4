@@ -10,20 +10,22 @@ export default function ColorForm({ onAddColor }) {
     <form className="color-form" onSubmit={handleSubmit}>
       <div className="color-form__field">
         <label htmlFor="role">Role</label>
-        <input type="text" name="role" id="role" />
+        <input type="text" name="role" id="role" placeholder="some color" />
         <label>
           Hex
-          <input type="text" placeholder="#123456" />
-          <input type="color" placeholder="#123456" />
+          <input type="text" name="hex" placeholder="#123456" />
+          <input type="color" name="hexColor" placeholder="#123456" />
         </label>
         <label>
           Contrast Text
-          <input type="text" placeholder="#ffff" />
-          <input type="color" placeholder="#ffff" />
+          <input type="text" name="contrastText" placeholder="#ffff" />
+          <input type="color" name="constrastColor" placeholder="#ffff" />
         </label>
       </div>
       <div className="color-form__button-wrapper">
-        <Button type="submit">ADD COLOR</Button>
+        <button type="submit" className="button">
+          ADD COLOR
+        </button>
       </div>
     </form>
   );
