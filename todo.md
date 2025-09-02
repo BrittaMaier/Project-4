@@ -1,4 +1,4 @@
-- Add button element to return of Color component
-- pass onDeleteColor prop as callbackfunction as a value of attribute onClick to button with id as the argument
-- Add handleDeleteColor function to App component with deletedID as parameter, using setterfunction to update colors state to filterColors const (which is assigned to colors filtered for all elements with ids that are not the deletedID)
-- pass handleDeleteColor function as value of attribute onDeleteColor to Color component
+Now that every color card has a working delete button the last two acceptance criteria need to be adressed:
+
+- before deleting the color card after pressing the delete button a confirmation message should be shown
+- if user deleted the last color card that was displayed, a message should be displayed encouraging users to add new colors

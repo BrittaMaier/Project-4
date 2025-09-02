@@ -18,7 +18,7 @@ export default function Color({ color, onDeleteColor }) {
         title="delete color"
         onClick={() => onDeleteColor(color.id)}
       >
-        ✕
+        DELETE
       </button>
     </div>
   );
