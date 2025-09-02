@@ -3,9 +3,11 @@ export default function ColorForm({ onAddColor }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const hex = data.hexText || data.hexColor;
-    const contrastText = data.contrastText || data.contrastColor;
-    onAddColor({ role: data.role, hex, contrastText });
+    onAddColor({
+      role: data.role,
+      hex: data.hex,
+      contrastText: data.contrastText,
+    });
     //event.target.reset();
   }
   return (
@@ -15,11 +17,13 @@ export default function ColorForm({ onAddColor }) {
         <input type="text" name="role" id="role" placeholder="some color" />
         <label>
           Hex
+          <br />
           <input type="text" name="hexText" placeholder="#123456" />
           <input type="color" name="hexColor" placeholder="#123456" />
         </label>
         <label>
           Contrast Text
+          <br />
           <input type="text" name="contrastText" placeholder="#ffffff" />
           <input type="color" name="contrastColor" placeholder="#ffffff" />
         </label>
