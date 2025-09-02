@@ -16,7 +16,7 @@ export default function Color({ color, onDeleteColor }) {
         className="color-card__button"
         type="button"
         title="delete color"
-        onClick={() => onDeleteColor(id)}
+        onClick={() => onDeleteColor(color.id)}
       >
         ✕
       </button>
