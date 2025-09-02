@@ -1,2 +1,4 @@
-Now, that the form works perse, I need to add a ColorInput component to synchronize the related input fields with type color and text.
-In my first approach, I would try this using a state variable that changes onChange or onInput.
+- Add button element to return of Color component
+- pass onDeleteColor prop as callbackfunction as a value of attribute onClick to button with id as the argument
+- Add handleDeleteColor function to App component with deletedID as parameter, using setterfunction to update colors state to filterColors const (which is assigned to colors filtered for all elements with ids that are not the deletedID)
+- pass handleDeleteColor function as value of attribute onDeleteColor
