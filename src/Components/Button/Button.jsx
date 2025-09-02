@@ -1,12 +1,20 @@
+import { useState } from "react";
 export default function Button({ DeleteColor }) {
+  const [display, setDisplay] = useState(false);
   return (
     <>
-      <p className="color-card-headline">Really delete?</p>
+      <p
+        className="color-card-headline"
+        style={{ display: display ? "inline" : "none" }}
+      >
+        Really delete?
+      </p>
       <button
         className="button__cancel-button"
         type="button"
         title="cancel delete color"
-        onClick={/*toggleDisplaybacktoinitalState*/}
+        hidden={!display}
+        onClick={() => setDisplay(false)}
       >
         CANCEL
       </button>
@@ -14,15 +22,17 @@ export default function Button({ DeleteColor }) {
         className="color-card__confirm-delete-button"
         type="button"
         title="confirm delete color"
+        hidden={!display}
         onClick={DeleteColor}
       >
-        DELETE 
+        DELETE
       </button>
-       <button
+      <button
         className="color-card__delete-button"
         type="button"
         title="delete color"
-        onClick={/*toggleDisplay*/}
+        hidden={!!display}
+        onClick={() => setDisplay(true)}
       >
         DELETE
       </button>
