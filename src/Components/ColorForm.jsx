@@ -14,13 +14,16 @@ export default function ColorForm({ onAddColor }) {
     <form className="color-form" onSubmit={handleSubmit}>
       <div className="color-form__field">
         <label htmlFor="role">Role</label>
+        <br />
         <input type="text" name="role" id="role" placeholder="some color" />
+        <br />
         <label>
           Hex
           <br />
           <input type="text" name="hexText" placeholder="#123456" />
           <input type="color" name="hexColor" placeholder="#123456" />
         </label>
+        <br />
         <label>
           Contrast Text
           <br />
