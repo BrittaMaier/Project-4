@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [colors, setColors] = useState(initialColors);
   function handleAddColor(newColor) {
-    setColors([...colors, { id: uid(), ...newColor }]);
+    setColors([{ id: uid(), ...newColor }, ...colors]);
   }
   return (
     <>
