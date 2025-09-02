@@ -5,7 +5,7 @@ export default function ColorForm({ onAddColor }) {
     const data = Object.fromEntries(formData);
     onAddColor({
       role: data.role,
-      hex: data.hex,
+      hex: data.hexText,
       contrastText: data.contrastText,
     });
     //event.target.reset();
