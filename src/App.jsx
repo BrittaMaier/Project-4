@@ -10,12 +10,22 @@ function App() {
   function handleAddColor(newColor) {
     setColors([{ id: uid(), ...newColor }, ...colors]);
   }
+  function handleDeleteColor(deleteId) {
+    const filterColors = colors.filter((color) => color.id != deleteId);
+    setColors(filterColors);
+  }
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onAddColor={handleAddColor}></ColorForm>
       {colors.map((color) => {
-        return <Color key={color.id} color={color} />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDeleteColor={handleDeleteColor}
+          />
+        );
       })}
     </>
   );
