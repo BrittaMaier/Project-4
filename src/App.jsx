@@ -7,6 +7,11 @@ import "./App.css";
 
 function App() {
   const [colors, setColors] = useState(initialColors);
+  const defaultFormInput = {
+    role: "some color",
+    hex: "#123456",
+    contrastText: "#FFFFFF",
+  };
   function handleAddColor(newColor) {
     setColors([{ id: uid(), ...newColor }, ...colors]);
   }
@@ -14,10 +19,18 @@ function App() {
     const filterColors = colors.filter((color) => color.id != deleteId);
     setColors(filterColors);
   }
+  /*function handleUpdateColor(updatedColor, updatedId){
+    const filterColors =colors.filter((color))???
+  }*/
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onAddColor={handleAddColor}></ColorForm>
+      <ColorForm
+        hidden={false}
+        onAddColor={handleAddColor}
+        buttonText="ADD COLOR"
+        defaultValues={defaultFormInput}
+      ></ColorForm>
       <p hidden={colors.length > 0}>No colors.. start by adding one!</p>
       {colors.map((color) => {
         return (
