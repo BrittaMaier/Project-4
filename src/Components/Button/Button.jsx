@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ColorForm from "../ColorForm";
-export default function Button({ DeleteColor, currentColor }) {
+export default function Button({ onDeleteColor, currentColor, onUpdateColor }) {
   const [display, setDisplay] = useState(false);
   const [visibility, setVisibility] = useState(false);
   return (
@@ -25,7 +25,7 @@ export default function Button({ DeleteColor, currentColor }) {
         type="button"
         title="confirm delete color"
         hidden={!display}
-        onClick={DeleteColor}
+        onClick={onDeleteColor}
       >
         DELETE
       </button>
@@ -51,6 +51,10 @@ export default function Button({ DeleteColor, currentColor }) {
         hidden={!visibility}
         buttonText="UPDATE COLOR"
         defaultValues={currentColor}
+        onAddColor={(updates) => {
+          onUpdateColor(currentColor.id, updates);
+          setVisibility(false);
+        }}
       ></ColorForm>
       <button
         className="color-card__cancel-edit-button"
