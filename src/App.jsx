@@ -4,9 +4,12 @@ import ColorForm from "./Components/ColorForm";
 import { useState } from "react";
 import { uid } from "uid";
 import "./App.css";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
-  const [colors, setColors] = useState(initialColors);
+  const [colors, setColors] = useLocalStorageState("colors", {
+    defaultValue: initialColors,
+  });
   const defaultFormInput = {
     role: "some color",
     hex: "#123456",
