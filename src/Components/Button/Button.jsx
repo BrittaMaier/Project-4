@@ -1,6 +1,8 @@
 import { useState } from "react";
-export default function Button({ DeleteColor }) {
+import ColorForm from "../ColorForm";
+export default function Button({ onDeleteColor, currentColor, onUpdateColor }) {
   const [display, setDisplay] = useState(false);
+  const [visibility, setVisibility] = useState(false);
   return (
     <>
       <p
@@ -10,7 +12,7 @@ export default function Button({ DeleteColor }) {
         Really delete?
       </p>
       <button
-        className="button__cancel-button"
+        className="color-card__cancel-delete-button"
         type="button"
         title="cancel delete color"
         hidden={!display}
@@ -23,7 +25,7 @@ export default function Button({ DeleteColor }) {
         type="button"
         title="confirm delete color"
         hidden={!display}
-        onClick={DeleteColor}
+        onClick={onDeleteColor}
       >
         DELETE
       </button>
@@ -31,10 +33,37 @@ export default function Button({ DeleteColor }) {
         className="color-card__delete-button"
         type="button"
         title="delete color"
-        hidden={!!display}
+        hidden={display || visibility}
         onClick={() => setDisplay(true)}
       >
         DELETE
+      </button>
+      <button
+        className="color-card__edit-button"
+        type="button"
+        title="edit color"
+        hidden={display || visibility}
+        onClick={() => setVisibility(true)}
+      >
+        EDIT
+      </button>
+      <ColorForm
+        hidden={!visibility}
+        buttonText="UPDATE COLOR"
+        defaultValues={currentColor}
+        onAddColor={(updates) => {
+          onUpdateColor(currentColor.id, updates);
+          setVisibility(false);
+        }}
+      ></ColorForm>
+      <button
+        className="color-card__cancel-edit-button"
+        type="button"
+        title="cancel edit color"
+        hidden={!visibility}
+        onClick={() => setVisibility(false)}
+      >
+        CANCEL
       </button>
     </>
   );

@@ -1,7 +1,7 @@
 import "./Color.css";
 import Button from "../Button/Button";
 
-export default function Color({ color, onDeleteColor }) {
+export default function Color({ color, onDeleteColor, onUpdateColor }) {
   return (
     <div
       className="color-card"
@@ -13,7 +13,11 @@ export default function Color({ color, onDeleteColor }) {
       <h3 className="color-card-headline">{color.hex}</h3>
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
-      <Button DeleteColor={() => onDeleteColor(color.id)}></Button>
+      <Button
+        onDeleteColor={() => onDeleteColor(color.id)}
+        currentColor={color}
+        onUpdateColor={onUpdateColor}
+      ></Button>
     </div>
   );
 }
