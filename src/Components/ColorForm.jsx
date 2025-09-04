@@ -1,10 +1,6 @@
 import ColorInput from "./Color/ColorInput";
-export default function ColorForm({
-  hidden,
-  onAddColor,
-  buttonText,
-  defaultValues,
-}) {
+
+export default function ColorForm({ onAddColor, buttonText, defaultValues }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -16,7 +12,7 @@ export default function ColorForm({
     });
   }
   return (
-    <form hidden={hidden} className="color-form" onSubmit={handleSubmit}>
+    <form className="color-form" onSubmit={handleSubmit}>
       <div className="color-form__field">
         <label htmlFor="role">Role</label>
         <br />

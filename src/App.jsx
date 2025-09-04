@@ -31,12 +31,11 @@ function App() {
     <>
       <h1>Theme Creator</h1>
       <ColorForm
-        hidden={false}
         onAddColor={handleAddColor}
         buttonText="ADD COLOR"
         defaultValues={defaultFormInput}
       ></ColorForm>
-      <p hidden={colors.length > 0}>No colors.. start by adding one!</p>
+      {colors.length === 0 && <p>No colors.. start by adding one!</p>}
       {colors.map((color) => {
         return (
           <Color
